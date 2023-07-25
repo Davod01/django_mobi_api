@@ -106,12 +106,8 @@ WSGI_APPLICATION = 'mobi_store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.environ.get('DB_NAME', 'mobile-store-cms'),
-        'USER': os.environ.get('DB_USER', 'Davod'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'Davod9569'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DB_PORT', '5432') ,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
