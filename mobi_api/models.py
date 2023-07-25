@@ -24,6 +24,7 @@ class mobile(models.Model):
     colors = models.CharField(choices=Colors.choices,default=Colors.black)
     Introduction = models.TextField(null=True, blank=True)
     expert_check = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='pics', null=True, blank=True)
     created = models.DateTimeField(auto_now=True)
     updated = models.DateField(null=True, blank=True)
 

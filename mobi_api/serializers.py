@@ -22,5 +22,5 @@ from .models import mobile
 class mobileSerializer(serializers.ModelSerializer):
     class Meta:
         model = mobile
-        fields = ['id','name', 'title', 'price', 'slug', 'display', 'display_size', 'resolution', 'os', 'Weight', 'batery', 'colors', 'Introduction', 'expert_check', 'created', 'updated', ]
+        fields = '__all__'
         lookup_field = 'slug'

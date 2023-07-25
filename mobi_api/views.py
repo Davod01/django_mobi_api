@@ -15,18 +15,12 @@ class mobileListView(generics.ListAPIView):
     queryset = mobile.objects.all()
     serializer_class = mobileSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
-    pagination_class = defaultPagination
     filter_backends = [filters.SearchFilter, filters.OrderingFilter,      DjangoFilterBackend]
-    filterset_class  = range_filter
+    filterset_class  = range_filter # filters class for filtering fields like price
     search_fields = ['name', 'title', 'os']
     ordering_fields = ['price']
+    pagination_class = defaultPagination
 
-# class mobileListView(generics.ListAPIView):
-#     queryset = mobile.objects.all()
-#     serializer_class = mobileSerializer
-#     permission_classes = [IsAuthenticatedOrReadOnly]
-#     filter_backends = [DjangoFilterBackend]
-#     filterset_class  = range_filter
 
 class mobileDetailView(generics.RetrieveAPIView):
     queryset = mobile.objects.all()
