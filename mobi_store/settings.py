@@ -23,10 +23,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t5xlkc986d8m$k(k8e0p)3tt0w_le9$6zy!tb_^sfs@jtt2$*0'
+SECRET_KEY = os.environ.get('SECRET_KEY','cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = []
 
@@ -106,12 +106,12 @@ WSGI_APPLICATION = 'mobi_store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mobile-store-cms',
-        'USER': 'Davod',
-        'PASSWORD': 'Davod9569',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.environ.get('DB_NAME', 'mobile-store-cms'),
+        'USER': os.environ.get('DB_USER', 'Davod'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'Davod9569'),
+        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+        'PORT': os.environ.get('DB_PORT', '5432') ,
     }
 }
 
